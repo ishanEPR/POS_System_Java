@@ -223,6 +223,16 @@ public class product extends javax.swing.JPanel {
                 "Id", "Product  Name", "Bar Code", "Price", "Qty", "SID"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -394,6 +404,55 @@ public class product extends javax.swing.JPanel {
         tb_load();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        //key press then show the item
+        int r=jTable1.getSelectedRow();
+        
+        
+        String id=jTable1.getValueAt(r, 0).toString();
+        String name=jTable1.getValueAt(r, 1).toString();
+        String bcode=jTable1.getValueAt(r, 2).toString();
+        String price=jTable1.getValueAt(r, 3).toString();
+        String qty=jTable1.getValueAt(r, 4).toString();
+        String sid=jTable1.getValueAt(r, 5).toString();
+        
+        
+        p_src.setText(id);
+        p_name.setText(name);
+        p_bcode.setText(bcode);
+
+        p_price.setText(price);
+        p_qty.setText(qty);
+        p_sid.setText(sid);
+        
+        
+        
+        
+    }//GEN-LAST:event_jTable1KeyPressed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        int r=jTable1.getSelectedRow();
+        
+        
+        String id=jTable1.getValueAt(r, 0).toString();
+        String name=jTable1.getValueAt(r, 1).toString();
+        String bcode=jTable1.getValueAt(r, 2).toString();
+        String price=jTable1.getValueAt(r, 3).toString();
+        String qty=jTable1.getValueAt(r, 4).toString();
+        String sid=jTable1.getValueAt(r, 5).toString();
+        
+        
+        p_src.setText(id);
+        p_name.setText(name);
+        p_bcode.setText(bcode);
+
+        p_price.setText(price);
+        p_qty.setText(qty);
+        p_sid.setText(sid);
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
