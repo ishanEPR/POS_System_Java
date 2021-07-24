@@ -65,6 +65,11 @@ public class product extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Update");
@@ -276,6 +281,35 @@ public class product extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // search btn code
+        String search=p_src.getText();
+        
+        try {
+            Statement s=db.mycon().createStatement();
+            ResultSet rs=s.executeQuery("SELECT * FROM product WHERE pid ='"+search+"'");
+            
+            if(rs.next())
+            {
+                
+                p_name.setText(rs.getString("Product_Name"));
+                p_bcode.setText(rs.getString("Bar_Code"));
+                p_price.setText(rs.getString("Price"));
+                p_qty.setText(rs.getString("Qty"));
+                p_sid.setText(rs.getString("Sid"));
+                
+                
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
