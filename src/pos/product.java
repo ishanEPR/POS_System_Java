@@ -5,8 +5,10 @@
  */
 package pos;
 
+import java.awt.HeadlessException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class product extends javax.swing.JPanel {
 
@@ -73,6 +75,11 @@ public class product extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/img/search (1).png"))); // NOI18N
@@ -85,6 +92,11 @@ public class product extends javax.swing.JPanel {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Delete");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Qty");
@@ -310,6 +322,49 @@ public class product extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // update product items
+        String id=p_src.getText();
+        String name=p_name.getText();
+        String bcode=p_bcode.getText();
+        String price=p_price.getText();
+        String qty=p_qty.getText();
+        String sid=p_sid.getText();
+        
+        
+         try {
+            Statement s=db.mycon().createStatement();
+            s.executeUpdate("UPDATE product SET Product_Name ='"+name+"' , Bar_Code ='"+bcode+"' ,Price ='"+price+"',Qty= '"+qty+"',Sid= '"+sid+"'  WHERE pid ='"+id+"' ");
+             JOptionPane.showMessageDialog(null, "Product Updated Sucessfully");
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // delete product
+        String id=p_src.getText();
+        
+        try {
+            Statement s=db.mycon().createStatement();
+            s.executeUpdate("DELETE FROM product WHERE pid= '"+id+"'");
+             JOptionPane.showMessageDialog(null, "Product Data Deleted");
+            
+            
+        } catch (HeadlessException | SQLException  e) {
+            System.out.println(e);
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
