@@ -204,7 +204,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // emp load
+        // emp page load
         employee emp=new employee();
         
         jpload.jPanelLoader(panel_load, emp);
@@ -212,7 +212,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
        
-        //customer load
+        //customer page load
         
         customer cus=new customer();
         jpload.jPanelLoader(panel_load, cus);
@@ -223,14 +223,14 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        // product load
+        // product page  load
         product pro=new product();
         
         jpload.jPanelLoader(panel_load, pro);
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
-        // sale load
+        // sale page load
         sale sl=new sale();
         jpload.jPanelLoader(panel_load, sl);
         
